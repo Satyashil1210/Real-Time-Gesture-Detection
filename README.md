@@ -1,98 +1,106 @@
-# RT-Gesture3D 🔹 Real-Time Hand Gesture Recognition
+🚀 Real-Time Gesture Detection
+✋ Static + 🔄 Dynamic Gesture Recognition Roadmap
 
-RT-Gesture3D is a real-time hand gesture recognition system built on top of
-MediaPipe and OpenCV. The project uses a clean, production-style architecture
-to separate detection, inference, capture, processing, and training logic.
+A production-structured real-time hand gesture recognition system built using MediaPipe, OpenCV, and modular ML-ready architecture.
 
-Currently, the system runs a fast heuristic-based recognizer and maps detected
-gestures to visual avatars. The architecture is future-ready for integrating
-machine learning models.
+Currently, the system supports fast static gesture recognition using a landmark-based heuristic engine.
+The architecture is designed to evolve into a deep learning-based dynamic gesture recognition system.
 
----
+✨ Current Capabilities (v1 – Static Gesture Engine)
 
-## 🔹 Features
+✅ Real-time hand detection using MediaPipe
+✅ Landmark-based rule engine for gesture classification
+✅ Avatar + label rendering system
+✅ CSV-based gesture registry (datasets/gestures.csv)
+✅ Modular & scalable code structure
+✅ Webcam live demo ready
+✅ Future-ready ML pipeline integration
 
-- Real-time hand detection using MediaPipe
-- Gesture recognition using landmark-based heuristics
-- Avatar and label visualization
-- CSV-based gesture registry (`datasets/gestures.csv`)
-- Easy extensibility for future ML training
-- Modular code structure (capture, detection, processing, training, inference)
-- Ready-to-use webcam demo
+🔮 Vision (v2 – ML + Dynamic Gesture Recognition)
 
----
+Upcoming upgrades include:
 
-## 🔹 Project Structure
+🔄 Temporal gesture recognition (dynamic gestures)
+🧠 LSTM / GRU / MLP based classifier
+📊 Sliding window landmark buffering
+📦 ONNX / TensorFlow Lite export
+🌐 Streamlit interactive web UI
+📁 Automatic dataset builder
+⚡ Real-time FPS optimization
+📱 Mobile / embedded deployment support
 
-```text
-RT-Gesture3D/
-├── assets/avatars      # Gesture avatars (png / jpg)
-├── datasets            # CSV based gesture definitions
-├── data/raw            # Raw captured frames
-├── data/processed      # Preprocessed landmarks / feature files
-├── models/checkpoints  # Trained model snapshots (future)
+🏗 System Architecture
+Camera Input 🎥
+        ↓
+MediaPipe Hand Landmarks ✋
+        ↓
+Feature Extraction 📊
+        ↓
+Static Rule Engine (Current Version)
+        ↓
+ML Classifier (Upcoming Version)
+        ↓
+Gesture ID
+        ↓
+CSV Mapping
+        ↓
+Avatar + Label Rendering 🖼
+
+📂 Project Structure
+Real-Time-Gesture-Detection/
+├── assets/avatars        # Gesture avatars (png / jpg)
+├── datasets              # CSV gesture definitions
+├── data/raw              # Captured frames
+├── data/processed        # Landmark feature files
+├── models/checkpoints    # Trained models (future)
 ├── src/
-│   ├── inference       # Real-time inference pipeline
-│   ├── detection       # MediaPipe abstraction
-│   ├── capture         # Dataset recording tools
-│   ├── processing      # Buffers & preprocessing
-│   ├── training        # (Future) model training
-│   └── app             # UI layer placeholders
-🔹 How to Run (Live Demo)
+│   ├── inference         # Real-time inference pipeline
+│   ├── detection         # MediaPipe abstraction
+│   ├── capture           # Dataset recording tools
+│   ├── processing        # Buffers & preprocessing
+│   ├── training          # ML training modules
+│   └── app               # Streamlit UI layer
 
-From project root:
+▶️ How to Run (Live Demo)
+1️⃣ Activate Virtual Environment
+.\venv\Scripts\Activate.ps1
 
+2️⃣ Run Static Real-Time Demo
 python src/inference/live_gesture_demo.py
 
 
 Press q to exit.
 
-🔹 Dataset & Mapping
+3️⃣ Run Web UI (Streamlit)
+streamlit run src/app/web_app_placeholder.py
 
-Gestures are defined centrally inside:
+
+Open in browser:
+
+http://localhost:8501
+
+🗂 Dataset & Gesture Registry
+
+Gestures are centrally defined in:
 
 datasets/gestures.csv
 
 
-Structure:
+Example format:
 
 id,label,meaning,avatar
 0,neutral,Neutral,neutral.png
 1,victory,Victory Sign,victory.jpg
-2,ok,OK / Thumbs Up,ok.jpg
-...
+2,ok,OK Gesture,ok.jpg
 
 
-Avatars are loaded from:
+This ensures prediction logic is decoupled from UI rendering.
 
-assets/avatars/
+🛠 Tech Stack
 
-🔹 Architecture
-
-Pipeline:
-
-Camera → MediaPipe → Landmarks
-          ↓
-    Rule-Based Predictor
-          ↓
-       Gesture ID
-          ↓
-   CSV Mapping → Avatar + Label
-
-🔹 Roadmap
-
-Future upgrades:
-
-Replace rule-based logic with an ML classifier
-
-Add temporal sequence modeling
-
-Export model to ONNX / TFLite
-
-Web UI (Streamlit / Flask)
-
-Mobile or embedded deployment
-
-🔹 Author
-
-RT-Gesture3D – built by Satyashil , Arman Pal 
+🐍 Python 3.10
+👁 MediaPipe
+📸 OpenCV
+📊 NumPy
+⚙ TensorFlow Lite (ML-ready)
+🌐 Streamlit
