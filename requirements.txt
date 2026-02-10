@@ -1,0 +1,27 @@
+# ---------------------------
+# Core Computer Vision
+# ---------------------------
+opencv-python
+mediapipe
+
+# ---------------------------
+# Numerical & Data Handling
+# ---------------------------
+numpy
+pandas
+
+# ---------------------------
+# App Layer (future-ready UI)
+# ---------------------------
+streamlit
+
+# ---------------------------
+# ML / Inference (future)
+# ---------------------------
+scikit-learn
+onnxruntime
+
+# ---------------------------
+# Utilities
+# ---------------------------
+tqdm
