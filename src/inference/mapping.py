@@ -8,13 +8,15 @@ class GestureInfo:
     Basic info about each gesture.
     """
     id: int
-    key: str          # internal key (e.g. "rock")
-    display_name: str # short display name
-    meaning: str      # longer meaning text
-    avatar_file: str  # filename inside assets/avatars
-        
+    key: str
+    display_name: str
+    meaning: str
+    avatar_file: str 
 
-# Central gesture registry
+
+# ==============================
+# 🎯 GESTURE REGISTRY
+# ==============================
 GESTURES = {
     "neutral": GestureInfo(
         id=0,
@@ -67,12 +69,24 @@ GESTURES = {
     ),
 }
 
+
+# 🔥 SAFE ID → KEY MAPPING
 ID_TO_KEY = {info.id: info.key for info in GESTURES.values()}
 
 
+def get_key_from_id(gid: int) -> str:
+    """
+    Safe getter (prevents crash if id not found)
+    """
+    return ID_TO_KEY.get(gid, "neutral")
+
+
+# ==============================
+# 📁 PATH HELPERS
+# ==============================
 def get_project_root() -> Path:
     """
-    Returns RT-Gesture3D/ root directory.
+    Returns RT-Gesture3D root directory.
     Assumes this file is at src/inference/mapping.py
     """
     return Path(__file__).resolve().parents[2]
@@ -81,5 +95,8 @@ def get_project_root() -> Path:
 def get_avatars_dir() -> Path:
     """
     Returns RT-Gesture3D/assets/avatars path.
+    Auto-creates folder if missing.
     """
-    return get_project_root() / "assets" / "avatars"
+    path = get_project_root() / "assets" / "avatars"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
