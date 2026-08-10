@@ -77,7 +77,7 @@ streamlit run src/app/web_app_placeholder.py
 
 Open in browser:
 
-http://localhost:8501
+https://real-time-gesture-detection-uynbqv49r9vz5oqwo3euua.streamlit.app/
 
 🗂 Dataset & Gesture Registry
 
