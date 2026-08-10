@@ -1,6 +1,4 @@
 import streamlit as st
-import cv2
-import numpy as np
 
 st.set_page_config(page_title="RT-Gesture3D", layout="wide")
 
